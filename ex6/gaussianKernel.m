@@ -14,9 +14,10 @@ sim = 0;
 %               and x2 computed using a Gaussian kernel with bandwidth
 %               sigma
 %
-%
+% size(x1) = [ 3, 1 ]
+% size(x2) = [ 3, 1 ]
 
-
+ sim = 1/exp(((x1 .- x2)' * (x1 -x2))/(2 * sigma^2));
 
 
 
