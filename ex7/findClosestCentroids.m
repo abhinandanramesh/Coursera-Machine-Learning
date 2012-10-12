@@ -20,14 +20,21 @@ idx = zeros(size(X,1), 1);
 %
 % Note: You can use a for-loop over the examples to compute this.
 %
+% centroids = [3, 2]
+% X = [300, 2]
 
-
-
-
-
-
-
+for i = 1:length(X)
+	deltas = zeros(K,1);
+	x = X(i,:);
+	for j = 1:K
+		k = centroids(j,:);
+		delta = x - k;
+		deltas(j) = delta * delta';
+		%fprintf(['delta for X(%d) & centroid(%d) : %f\n'], i, j, deltas(j));
+	end
+	[y, idx(i)] = min(deltas);
+	%fprintf(['centroid idx for X(%d): %d\n'], i, idx(i) );
+end
 % =============================================================
 
 end
-
